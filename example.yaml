@@ -1,0 +1,22 @@
+out_base: example_out
+d_start: 2023-09-07 00:00:00
+d_end: 2023-09-08 00:00:00
+increment: 29
+field_names:
+  - keyword
+  - hashtag_name
+keywords:
+  - - dali
+    - "dal\xED"
+    - dali immersive
+    - "dal\xED immersive"
+    - immersive dali
+    - "immersive dal\xED"
+  - - immersive
+    - cybernetics
+# any combinations of keywords and field_names at the outer level in either
+# order, in keyword or hashtag_name
+schedule: hourly
+# either hourly or daily
+total: 30
+# hourly or daily for 30 times

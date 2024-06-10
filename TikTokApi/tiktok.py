@@ -126,7 +126,7 @@ class TikTokApi:
             "os": platform,
             "priority_region": "",
             "referer": "",
-            "region": "US",  # TODO: TikTokAPI option
+            "region": "UK",  # TODO: TikTokAPI option
             "screen_height": screen_height,
             "screen_width": screen_width,
             "tz_name": timezone,
@@ -179,6 +179,10 @@ class TikTokApi:
             )
 
         await page.goto(url)
+        await page.wait_for_timeout(3000)
+        # accept cookies, click where 'Accept All' appears inside a Button tag
+        await page.click("button:text('Accept All')")
+        await page.wait_for_timeout(3000)
 
         session = TikTokPlaywrightSession(
             context,
@@ -195,7 +199,8 @@ class TikTokApi:
             session.ms_token = ms_token
             if ms_token is None:
                 self.logger.info(
-                    f"Failed to get msToken on session index {len(self.sessions)}, you should consider specifying ms_tokens"
+                    f"Failed to get msToken on session index {
+                        len(self.sessions)}, you should consider specifying ms_tokens"
                 )
         self.sessions.append(session)
         await self.__set_session_params(session)

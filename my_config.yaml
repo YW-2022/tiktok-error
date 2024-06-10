@@ -1,0 +1,12 @@
+out_base: "/User/apple/TikTok-Api"
+d_start: "2022-01-01"
+d_end: "2022-01-02"
+increment: 7
+field_names:
+  - "category"
+  - "region"
+field_values:
+  - ["VR"]
+  - ["US", "UK"]
+schedule: "24h"
+total: 5
